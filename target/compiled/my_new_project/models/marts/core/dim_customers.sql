@@ -1,13 +1,3 @@
-
-
-  create  table
-    "dev"."dbt_nobodozie"."dim_customers__dbt_tmp"
-    
-    
-    
-  as (
-    
-
 with customers as (
 
     select * from "dev"."dbt_nobodozie"."stg_customers"
@@ -53,4 +43,3 @@ final as (
 )
 
 select * from final
-  );
