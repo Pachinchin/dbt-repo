@@ -8,12 +8,22 @@ sources:
     tables:
       - name: payment
         description: "{{ doc('table_payment') }}"
-        columns: 
-          - name: payment_id
+        columns:
+          - name: id
             description: "{{ doc('primarykey_payment') }}"
             tests:
-              - unique
-              - not_null
+             - unique
+             - not_null
+          - name: paymentmethod
+            description: "{{ doc('method_payment') }}"
+            tests:
+              - accepted_values:
+                  values:
+                    - coupon
+                    - credit_card
+                    - bank_transfer
+                    - gift_card
+
         loaded_at_field: _batched_at
         freshness:
           warn_after: {count: 12, period: hour}
