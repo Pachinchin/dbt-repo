@@ -9,7 +9,7 @@ with payment as (
         amount/100 as amount,
         status
 
-    from stripe.payment
+    from {{ source('stripe', 'payment')}}
 
 )
 select * from payment

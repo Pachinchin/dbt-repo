@@ -6,7 +6,7 @@ with orders as (
         order_date,
         status
 
-    from jaffle_shop.orders
+    from "dev"."jaffle_shop"."orders"
 
 )
 select * from orders
