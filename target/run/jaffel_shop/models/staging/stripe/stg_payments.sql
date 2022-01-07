@@ -12,7 +12,7 @@
         amount/100 as amount,
         status
 
-    from stripe.payment
+    from "dev"."stripe"."payment"
 
 )
 select * from payment

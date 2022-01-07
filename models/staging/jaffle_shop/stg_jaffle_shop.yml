@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: stg_customers
+    description: "{{ doc('stg_customer') }}"
     columns: 
       - name: customer_id
+        description: "{{ doc('primarykey_customer') }}"
         tests:
           - unique
           - not_null
@@ -11,10 +13,12 @@ models:
   - name: stg_orders
     columns:
       - name: order_id
+        description: "{{ doc('primarykey_orders') }}"
         tests:
           - unique
           - not_null
       - name: status
+        description: "{{ doc('order_status') }}"
         tests:
           - accepted_values:
               values:
@@ -23,3 +27,9 @@ models:
                 - returned
                 - return_pending
                 - placed
+      - name: customer_id
+        description: "{{ doc('foreign_key') }}"
+        tests:
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
